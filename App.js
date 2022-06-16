@@ -5,8 +5,9 @@ import { StatusBar } from "expo-status-bar";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Home from "./screens/Home";
-import MyCard from "./screens/MyCard";
 import ProductInfo from "./screens/ProductInfo";
+import { SafeAreaView, StyleSheet } from "react-native";
+import MyCart from "./screens/MyCart";
 
 // ----------------------------------------------------------------------------
 // copy to the native doc -----------------------------------------------------
@@ -22,14 +23,26 @@ const Stack = createNativeStackNavigator();
 export default function App() {
   return (
     <>
+      <SafeAreaView style={styles.container}>
       <NavigationContainer>
         <Stack.Navigator screenOptions={{ headerShown: false }}>
           <Stack.Screen name="Home" component={Home} />
-          <Stack.Screen name="MyCard" component={MyCard} />
+          <Stack.Screen name="MyCart" component={MyCart} />
           <Stack.Screen name="ProductInfo" component={ProductInfo} />
         </Stack.Navigator>
       </NavigationContainer>
       <StatusBar style="light" />
+      </SafeAreaView>
     </>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+  text: {
+    fontSize: 25,
+    fontWeight: '500',
+  }
+});

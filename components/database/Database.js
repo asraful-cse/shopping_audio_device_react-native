@@ -5,7 +5,10 @@ export const COLOURS = {
   blue: "#0043F9",
   backgroundMedium: "#F0F0F3",
   backgroundLight: "#B9B9B9",
-  backgraundDark: "777777",
+  backgraundDark: "#777777",
+  lightYellow: "#FFFFE0",
+  yellow: "yellow",
+  lightGreen: "#DEF2B3",
 };
 
 export const Items = [
@@ -18,10 +21,10 @@ export const Items = [
     isOff: true,
     productPrice: 1799,
     isAvailable: true,
-    offPercentage: 20,
+    offPercentage: 20 ,
     productImage: require("../database/images/products/mi_1.png"),
     productImageList: [
-      require("../database/images/products/mi_2.png"),
+      require("../database/images/products/mi_1.png"),
       require("../database/images/products/mi_2.png"),
       require("../database/images/products/mi_3.png"),
     ],
@@ -60,14 +63,15 @@ export const Items = [
   //   ],
   // },
   {
-    id: 4,
+    id: 3,
     category: "accessory",
     productName: "Boat Airdopes 131",
     description:
       "Product details of Mi M1 Airdots True Wireless Bluetooth Sports EarBuds Earphones Stereo Music Headset ",
-    isOff: false,
+    isOff: true,
     isAvailable: true,
     productPrice: 999,
+    offPercentage: 15,
     productImage: require("../database/images/accessories/bashed_1.png"),
     productImageList: [
       require("../database/images/accessories/bashed_1.png"),
@@ -76,7 +80,7 @@ export const Items = [
     ],
   },
   {
-    id: 5,
+    id: 4,
     category: "accessory",
     productName: "Boat Airdopes 091",
     description:
@@ -94,7 +98,7 @@ export const Items = [
   },
 
   {
-    id: 6,
+    id: 5,
     category: "accessory",
     productName: "Boat Airdopes 1011",
     description:
@@ -111,7 +115,7 @@ export const Items = [
   },
 
   {
-    id: 7,
+    id: 6,
     category: "accessory",
     productName: "Boat Airdopes 911",
     description:
@@ -121,7 +125,7 @@ export const Items = [
     productPrice: 500,
     productImage: require("../database/images/accessories/boatRocker_1.png"),
     productImageList: [
-      require("../database/images/accessories/boatRocker_2.png"),
+      require("../database/images/accessories/boatRocker_1.png"),
       require("../database/images/accessories/boatRocker_2.png"),
       require("../database/images/accessories/boatRocker_3.png"),
     ],

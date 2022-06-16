@@ -44,10 +44,15 @@ export default function Home({ navigation }) {
   // create am product reusable---- <Text>{data.productName}</Text>;
   const ProductCard = ({ data }) => {
     return (
+   
       <TouchableOpacity
+
+      onPress={()=>navigation.navigate('ProductInfo', {productID:data.id})}
         style={{
           width: "48%",
           marginVertical: 14,
+          backgroundColor: COLOURS.lightYellow,
+          borderRadius: 10,
         }}
       >
         <View
@@ -55,7 +60,7 @@ export default function Home({ navigation }) {
             width: "100%",
             height: 100,
             borderRadius: 10,
-            backgroundColor: COLOURS.backgroundLight,
+            backgroundColor: COLOURS.lightGreen,
             justifyContent: "center",
             position: "relative",
             alignItems: "center",
@@ -85,7 +90,7 @@ export default function Home({ navigation }) {
                   letterSpacing: 1,
                 }}
               >
-                {data.offPercentage}
+                {data.offPercentage} %
               </Text>
             </View>
           ) : null}
@@ -105,6 +110,7 @@ export default function Home({ navigation }) {
             color: COLOURS.black,
             fontWeight: "600",
             marginBottom: 2,
+            marginLeft: 5,
           }}
         >
           {data.productName}
@@ -113,17 +119,47 @@ export default function Home({ navigation }) {
         {data.category == "accessory" ? (
           data.isAvailable ? (
             <View style={{ flexDirection: "row", alignItems: "center" }}>
-              <FontAwesome name="circle" style={{ color: COLOURS.green, marginRight:6 }} />
-              <Text style={{ fontSize: 12, color: COLOURS.green }}>
-                Anailable
+              <FontAwesome
+                name="circle"
+                style={{ color: COLOURS.green, marginRight: 6, marginLeft: 5 }}
+              />
+              <Text
+                style={{ fontSize: 12, color: COLOURS.green, marginLeft: 5 }}
+              >
+                Available
               </Text>
             </View>
-          ) : null
+          ) : (
+            <View style={{ flexDirection: "row", alignItems: "center" }}>
+              <FontAwesome
+                name="circle"
+                style={{ color:'red', marginRight: 6, marginLeft: 5 }}
+              />
+              <Text
+                style={{ fontSize: 12, color: 'red', marginLeft: 5 }}
+              >
+                Unvailable
+              </Text>
+            </View>
+          )
         ) : null}
 
-        <Text>&#8377; {data.productPrice}</Text>
+        <Text
+          style={{
+            color: COLOURS.black,
+            opacity: 0.6,
+            fontSize: 15,
+            marginLeft: 5,
+            marginBottom: 4,
+          }}
+        >
+          &#x09F3; {data.productPrice}
+        </Text>
       </TouchableOpacity>
+
+
     );
+
   };
 
   return (
@@ -141,7 +177,6 @@ export default function Home({ navigation }) {
             padding: 16,
           }}
         >
-
           {/* navbar icon touchble create------------------ */}
           <TouchableOpacity>
             <Entypo
@@ -156,7 +191,8 @@ export default function Home({ navigation }) {
             ></Entypo>
           </TouchableOpacity>
 
-          <TouchableOpacity>
+          <TouchableOpacity 
+          onPress={()=> navigation.navigate('MyCart')}>
             <MaterialCommunityIcons
               name="cart"
               style={{
@@ -290,7 +326,7 @@ export default function Home({ navigation }) {
                   color: COLOURS.black,
                 }}
               >
-                Products
+                Accessories
               </Text>
               <Text
                 style={{
@@ -330,3 +366,5 @@ export default function Home({ navigation }) {
     </View>
   );
 }
+
+
